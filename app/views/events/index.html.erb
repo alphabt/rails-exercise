@@ -1,8 +1,9 @@
 <ul>
   <% @events.each do |event| %>
   <li>
-    <%= event.name %>
-    <%= link_to 'Show', event %>
+    <%= link_to event.name, event %>
+    <%= link_to 'XML', event_path(event, :format => :xml) %>
+    <%= link_to 'JSON', event_path(event, :format => :json) %>
     <%= link_to 'Edit', edit_event_path(event) %>
     <%= button_to 'Delete', event, :method => :delete, :data => { :confirm => "Are you sure?" } %>
   </li>
@@ -10,3 +11,4 @@
 </ul>
 <%= paginate @events %>
 <%= link_to 'New Event', new_event_path %>
+<%= link_to 'Atom Feed', events_path(:format => :atom) %>
