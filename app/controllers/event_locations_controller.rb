@@ -13,7 +13,7 @@ class EventLocationsController < ApplicationController
     @location = @event.build_location(location_params)
 
     if @location.save
-      redirect_to event_location_url(@event, @event.location)
+      redirect_to event_location_url(@event)
     else
       render :action => :new
     end
@@ -26,7 +26,7 @@ class EventLocationsController < ApplicationController
   def update
     @location = @event.location
     if @location.update(location_params)
-      redirect_to event_location_url(@event, @event.location)
+      redirect_to event_location_url(@event)
     else
       render :action => :edit
     end
@@ -36,7 +36,7 @@ class EventLocationsController < ApplicationController
     @location = @event.location
     @location.destroy
 
-    redirect_to event_url(@event)
+    redirect_to event_location_url(@event)
   end
 
   protected

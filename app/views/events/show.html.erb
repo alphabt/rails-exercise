@@ -1,9 +1,4 @@
 <%= @event.name %>
 <%= simple_format(@event.description) %>
 <p>Category: <%= @event.category_name %></p>
-<% if @event.location %>
-<%= link_to 'Location', event_location_path(@event, @event.location) %>
-<% else %>
-<%= link_to "Add Location", new_event_location_path(@event) %>
-<% end %>
 <p><%= link_to 'Back to index', events_path %></p>
